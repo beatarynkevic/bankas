@@ -1,0 +1,8 @@
+@import '~bootstrap/scss/bootstrap';
+$color: blue;
+h1 {
+    color: $color;
+    &:hover {
+        color : yellow;
+    }
+}
