@@ -6,11 +6,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $users = json_decode($users, 1);
 
     $postName = $_POST['name'] ?? '';
-    $postPass = ($_POST['pass'] ?? '');
+    $postPass = $_POST['pass'] ?? '';
 
-    foreach($users as $key) {
-        if($postName == $users['name']) {
-            if(password_verify($postPass, $users['pass'])) {
+    foreach($users as $user) {
+        if($postName == $user['name']) {
+            if(password_verify($postPass, $user['pass'])) {
                 $_SESSION['login'] = 1;
                 $_SESSION['user'] = $user;
                 header('Location: '. URL.'private.php');
@@ -21,19 +21,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['errorMsg'] = 'Password or Name is invalid';
     header('Location: '. URL.'login.php');
     die;
-
 }
-
-
-
-
-
-
-
-
-
-
-
+//LOGOUT scenarijus
+if(isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: '. URL.'login.php');
+    die;
+}
 
 ?>
 <!DOCTYPE html>
@@ -60,6 +54,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
 
     <div class="forma">
+    <!-- tikrinam ar yra ERROR pranesimas -->
+    <?php if(isset($_SESSION['errorMsg'])) : ?>
+        <h3 style="color:red"><?= $_SESSION['errorMsg'] ?></h3>
+       <?php unset($_SESSION['errorMsg']) ?>
+    <?php endif ?>
         <form action="<?= URL?>login.php" method="post">
             <input placeholder="Enter name" type="text" name="name">
             <input placeholder="Enter password" type="password" name="pass">
