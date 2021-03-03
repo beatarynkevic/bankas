@@ -1,6 +1,7 @@
 <?php
 require __DIR__.'/bootstrap.php';
 
+//PRISIJUNGIMO scenarijus
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $users = file_get_contents(__DIR__.'/users.json');
     $users = json_decode($users, 1);

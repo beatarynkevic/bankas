@@ -15,7 +15,7 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
     <title>Private</title>
 </head>
 <body>
-    <h1>Labas<?= $_SESSION['user']['name'] ?></h1>
+    <h1>Labas, <?= $_SESSION['user']['name'] ?> 🖖</h1>
     <!-- atsijungimo linkas. Kreipiames i logino pslp,  -->
     <a href="<?= URL?>login.php?logout">Atsijungti</a>
 </body>
