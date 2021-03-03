@@ -1,5 +1,10 @@
 <?php
 require __DIR__.'/bootstrap.php';
+_d(readData());
+
+_d(getNextId());
+_d(getNextId());
+_d(getNextId());
 
 if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
     header('Location: '. URL .'login.php');
