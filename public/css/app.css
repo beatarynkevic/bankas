@@ -10005,6 +10005,8 @@ h3 {
 }
 h1 {
   color: blue;
+  margin-bottom: 2.5rem;
+  margin-left: 10px;
 }
 h1:hover {
   color: yellow;
@@ -10048,4 +10050,9 @@ div > form input {
 
 input {
   margin-bottom: 20px;
+}
+
+.mygtukai, a.btn {
+  margin-left: 8px;
+  margin-bottom: 2.5rem;
 }

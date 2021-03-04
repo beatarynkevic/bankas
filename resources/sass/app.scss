@@ -3,6 +3,8 @@
 $color: blue;
 h1 {
     color: $color;
+	margin-bottom: 2.5rem;
+	margin-left: 10px;
     &:hover {
         color : yellow;
     }
@@ -41,4 +43,11 @@ div>form input {
 }
 input {
     margin-bottom: 20px;
+}
+
+// private.php
+
+.mygtukai, a.btn {
+	margin-left: 8px;
+	margin-bottom: 2.5rem;
 }

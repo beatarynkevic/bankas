@@ -46,7 +46,7 @@ if(isset($_GET['logout'])) {
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <h1>KatinoBankas</h1>
+            <h1>KatinoBankas 🐱</h1>
         </div>
     </nav>
 

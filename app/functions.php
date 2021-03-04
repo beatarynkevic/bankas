@@ -30,9 +30,14 @@ function getNextId()
     return $id;
 }
 
-function name()
+function create(int $count) : void
 {
-    
+    $bankAccounts = readData();
+    $id = getNextId();
+    $account = ['id' => $id, 'saskaitoje' => $count];
+    $bankAccounts[] = $account;
+    writeData($bankAccounts);
+
 }
 
 // saskaita, pinigai
