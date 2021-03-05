@@ -52,10 +52,10 @@ if(isset($_GET['logout'])) {
 
     <div class="forma">
     <!-- tikrinam ar yra ERROR pranesimas -->
-    <?php if(isset($_SESSION['errorMsg'])) : ?>
+        <?php if(isset($_SESSION['errorMsg'])) : ?>
         <h3 style="color:red"><?= $_SESSION['errorMsg'] ?></h3>
-       <?php unset($_SESSION['errorMsg']) ?>
-    <?php endif ?>
+        <?php unset($_SESSION['errorMsg']) ?>
+        <?php endif ?>
         <form action="<?= URL?>login.php" method="post">
             <input placeholder="Enter name" type="text" name="name">
             <input placeholder="Enter password" type="password" name="pass">
