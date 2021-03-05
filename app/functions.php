@@ -47,6 +47,5 @@ function create(int $count) : void
     ['id'=>2, 'saskaitoje'=> 1],
     ['id'=>3, 'saskaitoje'=> 300]
 ]*/
-echo round(251852, -3);
 
 ?>

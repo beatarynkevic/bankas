@@ -17,12 +17,13 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
     <title>Private</title>
 </head>
 <body>
-    <h1>Labas, <?= $_SESSION['user']['name'] ?> 🖖</h1>
+    <h1>Hello, <?= $_SESSION['user']['name'] ?> 🖖</h1>
     <div class="mygtukai">
-        <!-- <button class="btn btn-primary" type="submit">Naujas mokėjimas</button> -->
-        <a class="btn btn-success" href="<?= URL ?>create.php">Kurti nauja saskaita</a>
-        <!-- <button class="btn btn-warning" type="submit">Nusaičiuoti lėšas</button>
-        <button class="btn btn-danger" type="submit">Ištrinti</button> -->
+
+        <a class="btn btn-success" href="<?= URL ?>create.php">Create new account</a>
+            <!-- atsijungimo linkas. Kreipiames i logino pslp,  -->
+        <a class="btn btn-dark" role="button" href="<?= URL?>login.php?logout">Logout</a>
+
     </div>
     <ul>
     <?php foreach(readData() as $saskaita) : ?>
@@ -35,9 +36,10 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
+                <th scope="col">Nr.</th>
                 <th scope="col">Sąskaitos nr.</th>
                 <th scope="col">Sąskaitos likutis</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -46,11 +48,14 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
                     <th scope="row"><?= $saskaita['id'] ?></th>
                     <td><?= "LT12 3456 7890 1234"?></td>
                     <td><?= $saskaita['saskaitoje'] ?></td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Add</button>
+                        <button class="btn btn-warning" type="submit">Withdrawal</button>
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </td>
                 </tr>
             <?php endforeach?>
         </tbody>
     </table>
-    <!-- atsijungimo linkas. Kreipiames i logino pslp,  -->
-    <a class="btn btn-dark" role="button" href="<?= URL?>login.php?logout">Atsijungti</a>
 </body>
 </html>
