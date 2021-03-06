@@ -1,10 +1,8 @@
 <?php
 require __DIR__.'/bootstrap.php';
 //POST scenarijus
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $saskaitoje = $_POST['count'] ?? 0;
-    $saskaitoje = (int) $saskaitoje;
-    create($saskaitoje); //saskaitos sukurimas
+if(!empty($_POST)) {
+    create($_POST); //saskaitos sukurimas
     header('Location: '. URL .'private.php');
     die;
 }
@@ -29,22 +27,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <h1>New account</h1>
         <div class="wrap">
-            <form action="" method="get">
+            <form action=" <?= URL?>create.php" method="post">
                 <div class="user-details">
                     <label>First Name:</label>
-                    <input type="text">
+                    <input type="text" name="name">
                 </div>
                 <div class="user-details">
                     <label>Last Name:</label>
-                    <input type="text">
+                    <input type="text" name="surname">
                 </div>
                 <div class="user-details">
                     <label>ID Number:</label>
-                    <input type="text">
+                    <input type="text" name="id_number">
                 </div>
                 <div class="user-details">
                     <label>Account Nr.:</label>
-                    <input type="text">
+                    <input type="text" name="account_number">
                 </div>
                 <button class="myButton" type="sumbit">Submit</button>
             </form>

@@ -16,7 +16,7 @@ function writeData(array $data) : void
 }
 // paimam indeksa
 function getNextId()
-{ //kai neegzistuoja
+{
     if(!file_exists(DIR.'data/indexes.json')) {
         $index = json_encode(['id' => 1]);
         file_put_contents(DIR.'data/indexes.json', $index);
@@ -30,14 +30,16 @@ function getNextId()
     return $id;
 }
 
-function create(int $count) : void
+function create(array $data) : void
 {
     $bankAccounts = readData();
     $id = getNextId();
-    $account = ['id' => $id, 'saskaitoje' => $count];
-    $bankAccounts[] = $account;
-    writeData($bankAccounts);
+    $account = ['id' => $id, 'balance' => 0];
 
+    $newArray = array_merge($account, $data);
+
+    $bankAccounts[]= $newArray;
+    writeData($bankAccounts);
 }
 
 // saskaita, pinigai

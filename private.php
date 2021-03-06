@@ -25,20 +25,16 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
         <a class="btn btn-dark" role="button" href="<?= URL?>login.php?logout">Logout</a>
 
     </div>
-    <ul>
-    <?php foreach(readData() as $saskaita) : ?>
-        <li>
-            <span>ID: <?= $saskaita['id'] ?></span>
-            <span>Saskaitoje: <?= $saskaita['saskaitoje'] ?></span>
-        </li>
-    <?php endforeach?>
-    </ul>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Nr.</th>
-                <th scope="col">Sąskaitos nr.</th>
-                <th scope="col">Sąskaitos likutis</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">ID Number</th>
+                <th scope="col">Account Number</th>
                 <th></th>
             </tr>
         </thead>
@@ -46,8 +42,11 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
             <?php foreach(readData() as $saskaita) : ?>
                 <tr>
                     <th scope="row"><?= $saskaita['id'] ?></th>
-                    <td><?= "LT12 3456 7890 1234"?></td>
-                    <td><?= $saskaita['saskaitoje'] ?></td>
+                    <td><?= $saskaita['balance']?></td>
+                    <td><?= $saskaita['name'] ?></td>
+                    <td><?= $saskaita['surname'] ?></td>
+                    <td><?= $saskaita['id_number'] ?></td>
+                    <td><?= $saskaita['account_number'] ?></td>
                     <td>
                         <button class="btn btn-success" type="submit">Add</button>
                         <button class="btn btn-warning" type="submit">Withdrawal</button>
