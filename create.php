@@ -28,25 +28,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form> -->
     <div class="container">
         <h1>New account</h1>
-        <form action="" method="get">
-            <div>
-                <label>First Name:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label>Last Name:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label>ID Number:</label>
-                <input type="number">
-            </div>
-            <div>
-                <label>Account Number:</label>
-                <input type="text">
-            </div>
-            <button type="sumbit">Submit</button>
-        </form>
+        <div class="wrap">
+            <form action="" method="get">
+                <div class="user-details">
+                    <label>First Name:</label>
+                    <input type="text">
+                </div>
+                <div class="user-details">
+                    <label>Last Name:</label>
+                    <input type="text">
+                </div>
+                <div class="user-details">
+                    <label>ID Number:</label>
+                    <input type="text">
+                </div>
+                <div class="user-details">
+                    <label>Account Nr.:</label>
+                    <input type="text">
+                </div>
+                <button class="myButton" type="sumbit">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
