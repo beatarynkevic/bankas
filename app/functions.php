@@ -41,6 +41,30 @@ function create(array $data) : void
     $bankAccounts[]= $newArray;
     writeData($bankAccounts);
 }
+function getAccount(int $id) : ?array //grazina array arba null
+{
+    foreach(readData() as $account) {
+        if ($account['id'] == $id) {
+            return $account;
+        }
+    }
+    return null;
+}
+
+function get_client_info(int $id) : ?string
+{
+    foreach(readData() as $account) {
+        if ($account['id'] == $id) {
+
+            $a= "";
+            $a .= $account['name']." ";
+            $a .= $account['surname']. " ";
+            $a .= $account['id_number'];
+            return $a;
+        }
+    }
+    return null; 
+}
 
 // saskaita, pinigai
 /*

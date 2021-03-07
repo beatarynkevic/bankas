@@ -1,15 +1,5 @@
 <?php
 require __DIR__.'/bootstrap.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $id = $_GET['id'] ?? 0;
-    $id = (int) $id;
-    $account = getAccount($id);
-    if(!$account) {
-        header('Location: '.URL);
-        die;
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=URL?>/public/css/app.css">
     <link rel="stylesheet" href="<?=URL?>/public/css/create.css">
-    <title>Add money to account</title>
+    <title>Add</title>
 </head>
 <body>    
     <div class="mygtukai">
-        <a href="<?= URL ?>withdraw.php" class="btn btn-warning" type="submit">Withdraw</a>
-        <a href="<?= URL ?>delete.php" class="btn btn-danger" type="submit">Delete</a>
+        <a class="btn btn-warning" type="submit">Withdraw</a>
+        <a class="btn btn-success" type="submit">Add</a>
         <a href="<?= URL ?>private.php" class="btn btn-secondary" type="submit">Go back</a>
-        <h2>Client: <?= get_client_info($_GET['id'])?></h2>
     </div>
     <div class="container">
         <div class="wrap">

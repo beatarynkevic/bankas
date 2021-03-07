@@ -9,8 +9,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(251,228,48,1) 100%);
 }
 .container {
   max-width: 300px;
@@ -31,7 +31,7 @@ h1::before {
     bottom: 0;
     height: 3px;
     width: 30px;
-    background: #9b59b6;
+    background: #0602ec;
 }
 .myButton {
 	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
@@ -78,6 +78,11 @@ h1::before {
 input {
   height: 30px;
 }
+input.add {
+	margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
 label {
   font-size: 25px;
   font-weight: 500;
@@ -85,4 +90,21 @@ label {
 }
 .user-details {
   margin: 18px;
+}
+
+.mygtukai {
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0);
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+div>form input {
+    display: inline;
+}
+.add.btn.btn-primary {
+float: right;
+}
+input.add {
+	margin-bottom: 0;
 }
