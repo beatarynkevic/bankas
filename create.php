@@ -1,10 +1,16 @@
 <?php
 require __DIR__.'/bootstrap.php';
-//POST scenarijus
-if(!empty($_POST)) {
-    create($_POST); //saskaitos sukurimas
-    header('Location: '. URL .'private.php');
-    die;
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(empty($_POST["name"]) || empty($_POST["surname"]) || empty($_POST["id_number"]) || empty($_POST["account_number"])) {
+        $_SESSION['error_msg'] = "ALL FIELDS MUST BE FILED";
+        header('Location: '.URL.'create.php');
+        die;
+    } else {
+        create($_POST); //saskaitos sukurimas
+        header('Location: '. URL .'private.php');
+        die;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -26,7 +32,12 @@ if(!empty($_POST)) {
     </form> -->
     <div class="container">
         <h1>New account</h1>
+        <!-- tikrinam ar yra pranesimas -->
         <div class="wrap">
+        <?php if(isset($_SESSION['error_msg'])) : ?>
+            <h3 style="color:tomato; font-size: 17px;"><?= $_SESSION['error_msg'] ?></h3>
+            <?php unset($_SESSION['error_msg']) ?>
+            <?php endif ?>
             <form action=" <?= URL?>create.php" method="post">
                 <div class="user-details">
                     <label>First Name:</label>
