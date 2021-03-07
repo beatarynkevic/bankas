@@ -15,7 +15,7 @@ function writeData(array $data) : void
     file_put_contents(DIR.'data/bankAccounts.json', json_encode($data));
 }
 // paimam indeksa
-function getNextId()
+function getNextId() : int
 {
     if(!file_exists(DIR.'data/indexes.json')) {
         $index = json_encode(['id' => 1]);
@@ -50,19 +50,24 @@ function update(int $id, int $count) : void
         return;
     }
     $account['balance'] = $count;
+    deleteAccount($id);
+    $accounts = readData();
 
     $accounts[] = $account;
     writeData($accounts);
 }
 
-function deleteAccount(int $id) : ?array
+function deleteAccount(int $id) : void
 {
-    foreach(readData() as $account) {
+    $accounts = readData();
+    foreach($accounts as $key => $account) {
         if ($account['id'] == $id) {
-            return $account;
+            unset($accounts[$key]);
+            writeData($accounts);
+            return;
         }
     }
-    return null;
+
 }
 function getAccount(int $id) : ?array //grazina array arba null
 {

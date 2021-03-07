@@ -50,7 +50,9 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
                     <td>
                         <a href="<?= URL ?>add.php?id=<?= $saskaita['id'] ?>" class="btn btn-success" type="submit">Add</a>
                         <a class="btn btn-warning" type="submit">Withdraw</a>
-                        <a class="btn btn-danger" type="submit">Delete</a>
+                        <form style="display:inline" action="<?= URL ?>delete.php?id=<?= $saskaita['id'] ?>" method="post">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach?>

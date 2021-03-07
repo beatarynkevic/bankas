@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_GET['id'] ?? 0;
     $id = (int) $id;
     update($id, $add_money);
-    header('Location: '.URL);
+    header('Location: '.URL.'private.php');
     die;
 }
 
