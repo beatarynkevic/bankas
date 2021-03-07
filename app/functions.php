@@ -41,6 +41,29 @@ function create(array $data) : void
     $bankAccounts[]= $newArray;
     writeData($bankAccounts);
 }
+
+function update(int $id, int $count) : void 
+{
+    $accounts = readData();
+    $account = getAccount($id);
+    if(!$account) {
+        return;
+    }
+    $account['balance'] = $count;
+
+    $accounts[] = $account;
+    writeData($accounts);
+}
+
+function deleteAccount(int $id) : ?array
+{
+    foreach(readData() as $account) {
+        if ($account['id'] == $id) {
+            return $account;
+        }
+    }
+    return null;
+}
 function getAccount(int $id) : ?array //grazina array arba null
 {
     foreach(readData() as $account) {

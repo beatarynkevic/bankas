@@ -1,6 +1,16 @@
 <?php
 require __DIR__.'/bootstrap.php';
 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $add_money = $_POST['count'] ?? 0;
+    $add_money = (int) $add_money;
+    $id = $_GET['id'] ?? 0;
+    $id = (int) $id;
+    update($id, $add_money);
+    header('Location: '.URL);
+    die;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $_GET['id'] ?? 0;
     $id = (int) $id;
@@ -30,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     </div>
     <div class="container">
         <div class="wrap">
-            <form action="">
-                <input class="add" type="text">
+            <form action="<?= URL ?>add.php?id=<?= $_GET['id'] ?>" method="post">
+                <input class="add" type="text" name="count">
                 <button type="submit" class="add btn btn-primary">Submit</button>
             </form>
         </div>
