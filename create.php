@@ -23,13 +23,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>New account</title>
 </head>
 <body>
-    <!-- PERDAYTI KAD PASPAUDUS ADD MYGTUKA GALIMA BUTU IVESTI PINIGU -->
-    <!-- <a href="<?= URL ?>create.php">Create</a>
-
-    <form action="<?= URL ?>create.php" method="post">
-    bananu kiekis: <input type="text" name="count">
-    <button type="submit">Create</button>
-    </form> -->
     <div class="container">
         <h1>New account</h1>
         <!-- tikrinam ar yra pranesimas -->

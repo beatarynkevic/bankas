@@ -48,13 +48,20 @@ if(!isset($_SESSION['login']) || 1 != $_SESSION['login']) {
                     <td><?= $saskaita['id_number'] ?></td>
                     <td><?= $saskaita['account_number'] ?></td>
                     <td>
-                        <button class="btn btn-success" type="submit">Add</button>
-                        <button class="btn btn-warning" type="submit">Withdrawal</button>
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <a href="<?= URL ?>add.php" class="btn btn-success" type="submit">Add</a>
+                        <a class="btn btn-warning" type="submit">Withdrawal</a>
+                        <a class="btn btn-danger" type="submit">Delete</a>
                     </td>
                 </tr>
             <?php endforeach?>
         </tbody>
     </table>
+        <!-- PERDAYTI KAD PASPAUDUS ADD MYGTUKA GALIMA BUTU IVESTI PINIGU -->
+    <!-- <a href="<?= URL ?>create.php">Create</a>
+
+    <form action="<?= URL ?>create.php" method="post">
+    bananu kiekis: <input type="text" name="count">
+    <button type="submit">Create</button>
+    </form> -->
 </body>
 </html>
