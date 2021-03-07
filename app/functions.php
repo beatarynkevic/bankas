@@ -1,5 +1,9 @@
 <?php
 //nuskaito duomenis is JSON failo
+function sortByLastName($a, $b) {
+    return $a['surname'] <=> $b['surname'];
+}
+
 function readData() : array
 {
     if(!file_exists(DIR.'data/bankAccounts.json')) {
@@ -12,6 +16,8 @@ function readData() : array
 //iraso duomenis
 function writeData(array $data) : void
 {
+    
+    usort($data, 'sortByLastName');
     file_put_contents(DIR.'data/bankAccounts.json', json_encode($data));
 }
 // paimam indeksa
@@ -30,7 +36,7 @@ function getNextId() : int
     return $id;
 }
 
-function create(array $data) : void
+function create(array $data) 
 {
     $bankAccounts = readData();
     $id = getNextId();
