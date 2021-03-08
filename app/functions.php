@@ -93,7 +93,7 @@ function get_client_info(int $id) : ?string
             $a= "";
             $a .= $account['name']." ";
             $a .= $account['surname']. " ";
-            $a .= $account['id_number'];
+            $a .= $account['balance'];
             return $a;
         }
     }

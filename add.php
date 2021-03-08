@@ -32,12 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <title>Add money to account</title>
 </head>
 <body>    
+<?php foreach(readData() as $account) : ?>
     <div class="mygtukai">
-        <a href="<?= URL ?>withdraw.php" class="btn btn-warning" type="submit">Withdraw</a>
+        <a href="<?= URL ?>withdraw.php?id=<?= $account['id'] ?>" class="btn btn-warning" type="submit">Withdraw</a>
         <a href="<?= URL ?>delete.php" class="btn btn-danger" type="submit">Delete</a>
         <a href="<?= URL ?>private.php" class="btn btn-secondary" type="submit">Go back</a>
         <h2>Client: <?= get_client_info($_GET['id'])?></h2>
     </div>
+    <?php endforeach?>
     <div class="container">
         <div class="wrap">
             <form action="<?= URL ?>add.php?id=<?= $_GET['id'] ?>" method="post">

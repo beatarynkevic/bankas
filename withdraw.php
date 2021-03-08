@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/bootstrap.php';
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +14,10 @@ require __DIR__.'/bootstrap.php';
 </head>
 <body>    
     <div class="mygtukai">
-        <a class="btn btn-success" type="submit">Add</a>
+        <a href="<?= URL ?>add.php?id=<?= $_GET['id'] ?>" class="btn btn-success" type="submit">Add</a>
         <a class="btn btn-danger" type="submit">Delete</a>
         <a href="<?= URL ?>private.php" class="btn btn-secondary" type="submit">Go back</a>
+        <h2>Client: <?= get_client_info($_GET['id'])?></h2>
     </div>
     <div class="container">
         <div class="wrap">
