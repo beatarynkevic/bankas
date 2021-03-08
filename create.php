@@ -6,12 +6,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['error_msg'] = "ALL FIELDS MUST BE FILED";
         header('Location: '.URL.'create.php');
         die;
+    } elseif (strlen($_POST["name"]) < 4) {
+        $_SESSION['error_msg'] = "Name and surname must be longer";
+        header('Location: '.URL.'create.php');
+        die;
     } else {
         create($_POST); //saskaitos sukurimas
         header('Location: '. URL .'private.php');
         die;
     }
 }
+
+$letter_code = 'LT';
+$bank_code = '70440';
+$two_control_nr = rand(10, 99);
+$IBAN = $letter_code.strval($two_control_nr).$bank_code;
+foreach(range(1,11) as $_) {
+    $IBAN .= rand(0,9);
+}
+
+// $eleven_nr="";
+// while($eleven_nr < 11) {$eleven_nr += rand(0,9);}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="user-details">
                     <label>Account Nr.:</label>
-                    <input type="text" name="account_number">
+                    <input type="text" name="account_number" value="<?= $IBAN?>" readonly>
                 </div>
                 <button class="myButton" type="sumbit">Submit</button>
             </form>
