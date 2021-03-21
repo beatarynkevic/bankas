@@ -100,6 +100,19 @@ function get_client_info(int $id) : ?string
     return null; 
 }
 
+function ibam_generator()
+{
+    $letter_code = 'LT';
+    $bank_code = '70440';
+    $two_control_nr = rand(10, 99);
+    $IBAN = $letter_code.strval($two_control_nr).$bank_code;
+    foreach(range(1,11) as $_) {
+        $IBAN .= rand(0,9);
+    }
+
+    return $IBAN;
+}
+
 // saskaita, pinigai
 /*
 [

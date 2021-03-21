@@ -17,14 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-$letter_code = 'LT';
-$bank_code = '70440';
-$two_control_nr = rand(10, 99);
-$IBAN = $letter_code.strval($two_control_nr).$bank_code;
-foreach(range(1,11) as $_) {
-    $IBAN .= rand(0,9);
-}
-
 // $eleven_nr="";
 // while($eleven_nr < 11) {$eleven_nr += rand(0,9);}
 
@@ -62,7 +54,7 @@ foreach(range(1,11) as $_) {
                 </div>
                 <div class="user-details">
                     <label>Account Nr.:</label>
-                    <input type="text" name="account_number" value="<?= $IBAN?>" readonly>
+                    <input type="text" name="account_number" value="<?= ibam_generator(); ?>" readonly>
                 </div>
                 <button class="myButton" type="sumbit">Submit</button>
             </form>
